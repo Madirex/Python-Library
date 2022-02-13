@@ -6,15 +6,16 @@ Una aplicación escrita en Python (GUI y CLI) que gestiona socios y libros de un
 - Sqlite3.
 - Kivy.
 
-# 👁️ Vista previa
+# 👁️ Vista previa (CLI)
+<p align="center">
+  <img src="https://i.imgur.com/piNPf2i.png" alt="Acceso a datos relacional"/>
+</p>
+
+# 👁️ Vista previa (GUI)
 <p align="center">
   <img src="https://i.imgur.com/AzZNNKy.png" alt="Acceso a datos relacional"/>
 </p>
 
 <p align="center">
   <img src="https://i.imgur.com/pEUQPXD.png" alt="Acceso a datos relacional"/>
-</p>
-
-<p align="center">
-  <img src="https://i.imgur.com/piNPf2i.png" alt="Acceso a datos relacional"/>
 </p>
