@@ -7,6 +7,14 @@ Una aplicación escrita en Python (GUI y CLI) que gestiona socios y libros de un
 - Kivy.
 
 # 👁️ Vista previa
-[!https://i.imgur.com/AzZNNKy.png]
-[!https://i.imgur.com/pEUQPXD.png]
-[!https://i.imgur.com/piNPf2i.png]
+<p align="center">
+  <img src="https://i.imgur.com/AzZNNKy.png" alt="Acceso a datos relacional"/>
+</p>
+
+<p align="center">
+  <img src="https://i.imgur.com/pEUQPXD.png" alt="Acceso a datos relacional"/>
+</p>
+
+<p align="center">
+  <img src="https://i.imgur.com/piNPf2i.png" alt="Acceso a datos relacional"/>
+</p>
