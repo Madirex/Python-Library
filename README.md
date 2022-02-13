@@ -5,3 +5,8 @@ Una aplicación escrita en Python (GUI y CLI) que gestiona socios y libros de un
 - Python.
 - Sqlite3.
 - Kivy.
+
+# 👁️ Vista previa
+[!https://i.imgur.com/AzZNNKy.png]
+[!https://i.imgur.com/pEUQPXD.png]
+[!https://i.imgur.com/piNPf2i.png]
