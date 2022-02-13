@@ -1,0 +1,648 @@
+
+WindowManager:
+    MainWindow:
+        id: mainwindow
+    WindowManageUsers:
+        id: windowmanageuser
+    WindowManageBooks:
+        id: windowmanagebook
+
+    WindowAddUser:
+        id: windowadduser
+    WindowRemoveUser:
+        id: windowremoveuser
+    WindowGetInfo:
+        id: windowgetinfo
+    WindowUser:
+        id: windowuser
+    
+    WindowAddBook:
+        id: windowandbook
+    WindowRemoveBook:
+        id: windowremovebook
+    WindowBook:
+        id: windowbook
+
+    WindowManageLoans:
+        id: windowmanageloans
+    WindowLoanBook:
+        id: windowloanbook
+    WindowReturnBook:
+        id: windowreturnbook
+
+
+
+<MainWindow>
+    name: "main"
+
+    canvas.before:
+        Color:
+            rgba: 0, 0.01, 0.1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 100
+        padding: 40
+
+        Image:
+            size_hint_y: None
+            height:'40dp'
+            id: imageView
+            source: root.get_image()
+            allow_stretch: True
+
+        BoxLayout:
+            orientation: "horizontal"
+            size: root.width, root.height
+
+            spacing: 20
+
+            Button:
+                text: "Administrar socios"
+                on_release:
+                    app.root.current = "manageusers"
+                    root.manager.transition.direction = "left"
+
+            Button:
+                text: "Administrar libros"
+                on_release:
+                    app.root.current = "managebooks"
+                    root.manager.transition.direction = "left"
+
+            Button:
+                text: "Administrar préstamos"
+                on_release:
+                    app.root.current = "manageloans"
+                    root.manager.transition.direction = "left"
+
+        
+        Button:
+            text: "Consultar libros y socios"
+            on_release:
+                app.root.current = "getinfo"
+                root.manager.transition.direction = "left"
+
+<WindowManageUsers>
+    name: "manageusers"
+
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 50
+        padding: 50
+
+        Label:
+            id: title
+            text: "Administrador de usuarios"
+            size_hint: 1, 0.05
+            font_size: self.width/20
+            valign: 'middle'
+
+        BoxLayout:
+            orientation: "vertical"
+            size: root.width, root.height
+            spacing: 20
+
+            Button:
+                text: "< VOLVER"
+                size: self.width, 50
+                size_hint: None, None
+                on_release:
+                    app.root.current = "main"
+                    root.manager.transition.direction = "right"
+
+            Button:
+                text: "Alta de socio"
+                on_release:
+                    app.root.current = "adduser"
+                    root.manager.transition.direction = "left"
+
+            Button:
+                text: "Baja de socio"
+                on_release:
+                    app.root.current = "removeuser"
+                    root.manager.transition.direction = "left"
+<WindowManageBooks>
+    name: "managebooks"
+
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 50
+        padding: 50
+
+        Label:
+            id: title
+            text: "Administrador de libros"
+            size_hint: 1, 0.05
+            font_size: self.width/20
+            valign: 'middle'
+
+        BoxLayout:
+            orientation: "vertical"
+            size: root.width, root.height
+
+            spacing: 20
+
+            Button:
+                text: "< VOLVER"
+                size: self.width, 50
+                size_hint: None, None
+                on_release:
+                    app.root.current = "main"
+                    root.manager.transition.direction = "right"
+
+            Button:
+                text: "Alta de libro"
+                on_release:
+                    app.root.current = "addbook"
+                    root.manager.transition.direction = "left"
+
+            Button:
+                text: "Baja de libro"
+                on_release:
+                    app.root.current = "removebook"
+                    root.manager.transition.direction = "left"
+<WindowManageLoans>
+    name: "manageloans"
+
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 50
+        padding: 50
+
+        Label:
+            id: title
+            text: "Administrador de libros en préstamo"
+            size_hint: 1, 0.05
+            font_size: self.width/20
+            valign: 'middle'
+
+        BoxLayout:
+            orientation: "vertical"
+            size: root.width, root.height
+
+            spacing: 20
+
+            Button:
+                text: "< VOLVER"
+                size: self.width, 50
+                size_hint: None, None
+                on_release:
+                    app.root.current = "main"
+                    root.manager.transition.direction = "right"
+
+            Button:
+                text: "Prestar libro"
+                on_release:
+                    app.root.current = "loanbook"
+                    root.manager.transition.direction = "left"
+
+            Button:
+                text: "Devolver libro"
+                on_release:
+                    app.root.current = "returnbook"
+                    root.manager.transition.direction = "left"
+
+
+<WindowAddUser>
+    dni: dni
+    username: username
+    email: email
+    phone: phone
+    address: address
+    name: "adduser"
+
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 50
+        padding: 50
+
+        Label:
+            id: title
+            text: "Agregar socio"
+            size_hint: 1, 0.05
+            font_size: self.width/20
+            valign: 'middle'
+
+        BoxLayout:
+            orientation: "vertical"
+            size: root.width, root.height
+
+            spacing: 20
+
+            Button:
+                text: "< VOLVER"
+                size: self.width, 50
+                size_hint: None, None
+                on_release:
+                    app.root.current = "manageusers"
+                    root.manager.transition.direction = "right"
+
+            BoxLayout:
+                orientation: "horizontal"
+                Label:
+                    text:"DNI: "
+
+                TextInput:
+                    id: dni
+                    multiline: False
+
+            BoxLayout:
+                orientation: "horizontal"
+                Label:
+                    text:"Nombre: "
+
+                TextInput:
+                    id: username
+                    multiline: False
+
+            BoxLayout:
+                orientation: "horizontal"
+                Label:
+                    text:"Email: "
+
+                TextInput:
+                    id: email
+                    multiline: False
+
+            BoxLayout:
+                orientation: "horizontal" 
+                Label:
+                    text:"Teléfono: "
+
+                TextInput:
+                    id: phone
+                    multiline: False
+
+            BoxLayout:
+                orientation: "horizontal"
+                Label:
+                    text:"Dirección: "
+
+                TextInput:
+                    id: address
+                    multiline: False
+                
+            BoxLayout:
+                Button:
+                    text: "Agregar usuario"
+                    on_release:
+                        root.manager.transition.direction = "up"
+                        root.submit()
+<WindowRemoveUser>
+    dni: dni
+    name: "removeuser"
+
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 50
+        padding: 50
+
+        Label:
+            id: title
+            text: "Eliminar socio"
+            size_hint: 1, 0.05
+            font_size: self.width/20
+            valign: 'middle'
+
+        BoxLayout:
+            orientation: "vertical"
+            size: root.width, root.height
+
+            spacing: 20
+
+            Button:
+                text: "< VOLVER"
+                size: self.width, 50
+                size_hint: None, None
+                on_release:
+                    app.root.current = "manageusers"
+                    root.manager.transition.direction = "right"
+
+        FloatLayout:
+
+        Label:
+            text:"DNI: "
+
+        TextInput:
+            id: dni
+            multiline: False
+
+        Button:
+            text: "Eliminar socio"
+            on_release:
+                root.manager.transition.direction = "up"
+                root.submit()
+<WindowGetInfo>
+    name: "getinfo"
+    rv: rv
+
+    StackLayout:
+        padding: 20
+        spacing: 20
+        Label:
+            id: title
+            text: "Consultar datos"
+            size_hint: 1, 0.05
+            font_size: self.width/20
+            valign: 'middle'
+
+        StackLayout:
+            padding: 5
+            spacing: 20
+            StackLayout:
+                padding: 5
+                spacing: 20
+
+                Button:
+                    text: "< VOLVER"
+                    size: self.width, 50
+                    size_hint: None, None
+                    
+                    on_release:
+                        app.root.current = "main"
+                        root.manager.transition.direction = "right"
+
+                Button:
+                    text: "Cargar usuarios"
+                    size: 170, 50
+                    size_hint: None, None
+                    on_press: root.load_users()
+
+                Button:
+                    text: "Cargar libros"
+                    size: 170, 50
+                    size_hint: None, None
+                    on_press: root.load_books()
+
+                Button:
+                    text: "Cargar libros prestados"
+                    size: 170, 50
+                    size_hint: None, None
+                    on_press: root.load_loanbooks()
+
+                RecycleView:
+                    id: rv
+                    viewclass: 'TextInput'
+                    size: root.width, root.height
+                    RecycleBoxLayout:
+                        default_size: None, dp(400)
+                        default_size_hint: 1, None
+                        size_hint_y: None
+                        height: self.minimum_height
+                        orientation: 'vertical'
+
+
+<WindowAddBook>
+    isbn: isbn
+    title: title
+    author: author
+    gender: gender
+    cover: cover
+    synopsis: synopsis
+    copies: copies
+    name: "addbook"
+
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 50
+        padding: 50
+
+        Label:
+            id: title
+            text: "Agregar libro"
+            size_hint: 1, 0.05
+            font_size: self.width/20
+            valign: 'middle'
+
+        BoxLayout:
+            orientation: "vertical"
+            size: root.width, root.height
+
+            spacing: 20
+
+            Button:
+                text: "< VOLVER"
+                size: self.width, 50
+                size_hint: None, None
+                on_release:
+                    app.root.current = "managebooks"
+                    root.manager.transition.direction = "right"
+
+            BoxLayout:
+                orientation: "horizontal"
+                Label:
+                    text:"ISBN del libro: "
+
+                TextInput:
+                    id: isbn
+                    multiline: False
+
+            BoxLayout:
+                orientation: "horizontal"
+                Label:
+                    text:"Título: "
+
+                TextInput:
+                    id: title
+                    multiline: False
+
+            BoxLayout:
+                orientation: "horizontal"
+                Label:
+                    text:"Autor: "
+
+                TextInput:
+                    id: author
+                    multiline: False
+
+            BoxLayout:
+                orientation: "horizontal" 
+                Label:
+                    text:"Género: "
+
+                TextInput:
+                    id: gender
+                    multiline: False
+
+            BoxLayout:
+                orientation: "horizontal"
+                Label:
+                    text:"Portada: "
+
+                TextInput:
+                    id: cover
+                    multiline: False
+
+            BoxLayout:
+                orientation: "horizontal"
+                Label:
+                    text:"Sinopsis: "
+
+                TextInput:
+                    id: synopsis
+                    multiline: False
+
+            BoxLayout:
+                orientation: "horizontal"
+                Label:
+                    text:"Nº de copias: "
+
+                TextInput:
+                    id: copies
+                    multiline: False
+                
+            BoxLayout:
+                Button:
+                    text: "Agregar libro"
+                    on_release:
+                        root.manager.transition.direction = "up"
+                        root.submit()
+<WindowRemoveBook>
+    isbn: isbn
+    name: "removebook"
+
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 50
+        padding: 50
+
+        Label:
+            id: title
+            text: "Eliminar libro"
+            size_hint: 1, 0.05
+            font_size: self.width/20
+            valign: 'middle'
+
+        BoxLayout:
+            orientation: "vertical"
+            size: root.width, root.height
+
+            spacing: 20
+
+            Button:
+                text: "< VOLVER"
+                size: self.width, 50
+                size_hint: None, None
+                on_release:
+                    app.root.current = "managebooks"
+                    root.manager.transition.direction = "right"
+
+        FloatLayout:
+
+        Label:
+            text:"ISBN: "
+
+        TextInput:
+            id: isbn
+            multiline: False
+
+        Button:
+            text: "Eliminar libro"
+            on_release:
+                root.manager.transition.direction = "up"
+                root.submit()
+
+<WindowLoanBook>
+    dni: dni
+    isbn: isbn
+    name: "loanbook"
+
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 50
+        padding: 50
+
+        Label:
+            id: title
+            text: "Prestar libro"
+            size_hint: 1, 0.05
+            font_size: self.width/20
+            valign: 'middle'
+
+        BoxLayout:
+            orientation: "vertical"
+            size: root.width, root.height
+
+            spacing: 20
+
+            Button:
+                text: "< VOLVER"
+                size: self.width, 50
+                size_hint: None, None
+                on_release:
+                    app.root.current = "manageloans"
+                    root.manager.transition.direction = "right"
+
+            Label:
+                text:"DNI del socio: "
+
+            TextInput:
+                id: dni
+                multiline: False
+
+            Label:
+                text:"ISBN del libro: "
+
+            TextInput:
+                id: isbn
+                multiline: False
+            
+            Button:
+                text: "Prestar libro"
+                on_release:
+                    root.manager.transition.direction = "up"
+                    root.submit()
+<WindowReturnBook>
+    dni: dni
+    isbn: isbn
+    name: "returnbook"
+
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 50
+        padding: 50
+
+        Label:
+            id: title
+            text: "Devolver libro"
+            size_hint: 1, 0.05
+            font_size: self.width/20
+            valign: 'middle'
+
+        BoxLayout:
+            orientation: "vertical"
+            size: root.width, root.height
+
+            spacing: 20
+
+            Button:
+                text: "< VOLVER"
+                size: self.width, 50
+                size_hint: None, None
+                on_release:
+                    app.root.current = "manageloans"
+                    root.manager.transition.direction = "right"
+
+
+            Label:
+                text:"DNI del socio: "
+
+            TextInput:
+                id: dni
+                multiline: False
+
+            Label:
+                text:"ISBN del libro: "
+
+            TextInput:
+                id: isbn
+                multiline: False
+            
+            Button:
+                text: "Devolver libro"
+                on_release:
+                    root.manager.transition.direction = "up"
+                    root.submit()
