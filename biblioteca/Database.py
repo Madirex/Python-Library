@@ -4,9 +4,9 @@ from .User import User
 from .Book import Book
 
 class Database:
-    def __init__(self):
+    def init_db(self, name):
         PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-        self.__db_name = PROJECT_DIR + '/db/library.db'
+        self.__db_name = PROJECT_DIR + '/db/' + name + '.db'
 
         self.__con = sqlite3.connect(self.__db_name)
         self.__cur = self.__con.cursor()

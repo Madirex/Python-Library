@@ -4,10 +4,11 @@ from datetime import datetime
 from .Database import Database
 
 class Library:
-    def __init__(self):
+    def init_data(self, dbname):
         self.__users = []
         self.__books = []
         self.__db = Database()
+        self.__db.init_db(dbname)
 
         #Cargar datos de la BD
         self.load_database_data()

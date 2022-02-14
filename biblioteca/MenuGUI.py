@@ -1,6 +1,5 @@
 import kivy
 import os
-kivy.require('1.9.0')
 
 from kivy.app import App
 from kivy.lang import Builder
@@ -22,6 +21,7 @@ from .User import User
 min_width = 800
 min_height = 600
 library = Library()
+library.init_data("library")
 
 ##MAIN
 class WindowManager(ScreenManager):

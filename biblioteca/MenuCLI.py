@@ -17,6 +17,7 @@ def menu_msg_confirm(confirm_msg):
 
 def menu():
     library = Library()
+    library.init_data("library")
 
     exit_menu = False
 
