@@ -8,14 +8,14 @@ Una aplicación escrita en Python (GUI y CLI) que gestiona socios y libros de un
 
 # 👁️ Vista previa (CLI)
 <p align="center">
-  <img src="https://i.imgur.com/piNPf2i.png" alt="Acceso a datos relacional"/>
+  <img src="https://i.imgur.com/piNPf2i.png"/>
 </p>
 
 # 👁️ Vista previa (GUI)
 <p align="center">
-  <img src="https://i.imgur.com/AzZNNKy.png" alt="Acceso a datos relacional"/>
+  <img src="https://i.imgur.com/AzZNNKy.png"/>
 </p>
 
 <p align="center">
-  <img src="https://i.imgur.com/pEUQPXD.png" alt="Acceso a datos relacional"/>
+  <img src="https://i.imgur.com/pEUQPXD.png"/>
 </p>
