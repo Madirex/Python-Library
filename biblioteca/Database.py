@@ -24,7 +24,6 @@ class Database:
         books = []
         for row in self.__cur.execute('SELECT * FROM book'):
             book = Book(row[0], row[1], row[2], row[3], row[4], row[5], row[6])
-
             if row[7].lower() != "none":
                 book.user_assigned = row[7]
             if row[8].lower() != "none":
